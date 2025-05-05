@@ -1,0 +1,72 @@
+﻿@model IEnumerable<City>
+
+<form action="/City/Index" method="get">
+<div class="box flex">
+    <div class="flex-1">
+
+            <select class="form-input" class="form-control" asp-items="@ViewBag.searcList" name="searchProperty">
+      </select>
+         
+    </div>
+
+    <div class="flex-1">
+            <input type="search" id="Search" class="form-input" placeholder="Search" name="searchValue" value="@ViewBag.SearchValue" />
+    </div>
+
+    <div class="flex-1">
+        <button class="button button-blue-back">Search</button>
+
+        <a href="~/City/index" class="link-hover">ClearAll</a>
+    </div>
+
+</div>
+
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Cities List</h2>
+        <a asp-action="Create" asp-controller="City" class="btn btn-primary">Create New</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table-bordered table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                            @{
+                               
+                                bool soryDirection = (ViewBag.IsAssending == true) ? false : true;
+                            }
+
+                            <td>
+                                <a href="@Url.Action("Index", "City", new { searchProperty = ViewBag.SearchProperty, searchValue = ViewBag.SearchValue, sort = "Name",isAssending= soryDirection})">Name</a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Index", "City", new { searchProperty = ViewBag.SearchProperty, searchValue = ViewBag.SearchValue, sort = "Country",isAssending= soryDirection })">Country</a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Index", "City", new { searchProperty = ViewBag.SearchProperty, searchValue = ViewBag.SearchValue, sort = "Code",isAssending= soryDirection })">Code</a>
+                            </td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (City city in Model)
+                    {
+                        <tr>
+                            <td>@city.Name</td>
+                            <td>@city.Country</td>
+                            <td>@city.Code</td>
+                          
+                            <td>
+                                <a asp-action="Update" asp-route-id="@city.Id" class="btn btn-sm btn-warning me-2">Update</a>
+                                <a asp-action="Delete" asp-route-id="@city.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</form>

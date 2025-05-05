@@ -1,0 +1,28 @@
+﻿@model City
+
+@{
+    ViewData["Title"] = "Delete City";
+}
+
+<h2>Delete City</h2>
+
+<form asp-action="Deletee" asp-route-id="@Model.Id" method="post" >
+    
+    <div class="mb-3">
+        <label  asp-for="Name" class="form-label"></label>
+        <input disabled="disabled" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Country" class="form-label"></label>
+        <input disabled="disabled" asp-for="Country" class="form-control" />
+    </div>
+
+   
+   
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+
