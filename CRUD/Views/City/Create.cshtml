@@ -1,6 +1,5 @@
 ﻿@model CreateViewModel
 
-<a asp-action="Index" asp-controller="City" class="btn btn-primary">Go Back</a>
 <form asp-action="Create" asp-controller="Cities" enctype="multipart/form-data" method="post">
     <div class="form-group">
         <label asp-for="Name"></label>
@@ -20,6 +19,7 @@
         <span asp-validation-for="Code" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Add City</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
 
 
