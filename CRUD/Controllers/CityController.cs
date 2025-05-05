@@ -37,17 +37,7 @@ namespace CRUD.Controllers
 
             if(!string.IsNullOrEmpty(searchValue)&& !string.IsNullOrEmpty(searchProperty))
             {
-                /*
-                //var parameter = Expression.Parameter(typeof(City), "x");
-                //var property = Expression.Property(parameter, searchProperty);
-                //var constant = Expression.Constant(searchValue);
-                //var method = typeof(string).GetMethod("Contains", new[] { typeof(string) });
-                //var result=Expression.Call(property,method, constant);
-
-                //var lambda = Expression.Lambda<Func<City,bool>>(result, parameter);
-
-                //query = query.Where(lambda);
-                */
+               
 
                 var parameter = Expression.Parameter(typeof(City), "x");
                 var property = Expression.Property(parameter, searchProperty);
