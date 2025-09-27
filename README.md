@@ -9,5 +9,5 @@ This is an ASP.NET Core MVC project demonstrating full **CRUD (Create, Read, Upd
 
 - ASP.NET Core MVC
 - Entity Framework Core
-- SQL Server (or your configured database)
+- SQL Server 
 - Bootstrap (for styling)
